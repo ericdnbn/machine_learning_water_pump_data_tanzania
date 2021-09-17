@@ -6,23 +6,25 @@ Using data from the Tanzanian Ministry of Water, our goal is to predict if water
 
 ## Data
 We have ~59,400 data from DataDriven. <br>
-Our target class (functional and non functional) has a ~60/~40 split. <br>
+Our target class (functional and non functional) has a ~60%/~40% split. <br>
 
 ## Preparation
-We dropped duplicate features and unnecessary features for our model. We also replaced null object values to 'Unknown'.<br>
+We dropped duplicate features and unnecessary features in the dataset. We also replaced null values with 'Unknown'.<br>
 
 ## EDA
+
 ![image](https://raw.githubusercontent.com/ericdnbn/phase_3_project/main/images/Non%20Functioning%20Pumps%20by%20Management%20Groups.png)<br>
-Here we are speculating that how a waterpoint is managed may have an impact on the percentage of failed pumps. VWC seems to be leading the way with almost 43% non functioning pumps at their waterpoints.<br><br>
+We speculated that the company managing a well may have an impact on the percentage of failed pumps. VWC seems to be leading the way with almost 43% of their wells being non functional.<br><br>
 
 ![image](https://raw.githubusercontent.com/ericdnbn/phase_3_project/main/images/Water%20Quantity%20Non%20Functioning%20Pumps%20.png)<br>
-Well this is very interesting. Dry areas have the highest amount of broken pumps, at just about 97%. It is also interesting that waterpoints labeled as insufficient water have the second highest rate of broken pumps. It seems the less water a waterpoint has, the higher the chance the pump is non functioning.<br><br>
+Dry wells have the highest percentage of non functioning wells, at just about 97%. It is also interesting that waterpoints labeled as insufficient water have the second highest percentage of non functional wells. It seems the less water a well has, the higher the chance the pump is non functional.<br><br>
 
 ![image](https://raw.githubusercontent.com/ericdnbn/phase_3_project/main/images/Waterpoint%20Type%20Non%20Functioning%20Pumps.png)<br>
-A single standpipe seems to be a good indicator of whether or not a pump will stop working. If a waterpoint has multiple standpoints, there is over a 50% chance that the pump will not be functioning. It would be nice if the 'Other' category could be identified to see which pumps are performing the worst.<br>
+We found that waterpoint type is a good indicator of a well's functionality. If a waterpoint has multiple standpumps, there is over a 50% chance that the pump will be non functional. In the future, we would try to identify the 'Other' category to see which pumps are performing the worst.<br>
 
 ## Model Selection
-We used DummyClassifier, Logistic Regression, KNN, RandomForestClassifier, and XGBoost models to find the best accurate predictions.<br><br>
+We used Dummy Classifier, Logistic Regression, K Nearest Neighbors, Random Forest Classifier, and XGBoost models to find the prediciton accuracy.<br><br>
+
 DummyClassifier:<br>
 Mean Train Score: 0.6157575757575758<br>
 Mean Test Score: 0.6157575757575758<br><br>
@@ -43,28 +45,36 @@ XGBoost:<br>
 Mean Train Score: 0.9067957351290685<br>
 Mean Test Score: 0.842864758698092<br><br>
 
-XGBoost model had the lowest bias coupled with lower variance. Although the model is slightly overfit, it predicted the results the best.<br>
+Our second XGBoost model had the best ratio of bias to variance. Although the model is slightly overfit, it had the highest prediction accuracy.<br>
 
 ## Results
-The best model was XGBoost model with hyperparameter of 'model__max_depth': 7, 'model__n_estimators': 200. This model predicted accuracy of ~85.8%.<br>
+The best model was our second XGBoost model with hyperparameters of 'max_depth': 7, and 'n_estimators': 200. This model correctly predicted ~85.8% of the testing data.<br>
+
 ![image](https://raw.githubusercontent.com/ericdnbn/phase_3_project/main/images/Confusion%20Matrix.png)<br>
+
 The XGBoost model predicts 12,743 water pumps in the testing data correctly. The model also predicts 1,458 water pumps as non-functional when they are functional and it preditcs 649 water pumps as functional when they are non-functional.
 
 ## Feature Importance
-With our best model, we checked which features were most impactful in our model.<br>
+We investigated the most important features in our best model.<br>
+
 ![image](https://raw.githubusercontent.com/ericdnbn/phase_3_project/main/images/Feature%20Importance.png)<br>
+
 We found that the feature quantity_dry had the biggest impact, ~28.2%, and waterpoint_type_other had the second biggest impact on the model, ~12.4%.
 
 ## Conclusion
-Our final model, XGBoost, gave us ~85.8% accuracy of predicting the functionality of the water pump.<br><br>
-Given those features that have the greatest impact on the functionality of water wells in Tanzania our recommendations to the Tanzanian Ministry of Water are:
+Our final model, the XGBoost, gave us ~85.8% accuracy in predicting the functionality of a water well.<br><br>
+Given the features that had the greatest impact on the functionality of water wells in Tanzania, our recommendations to the Tanzanian Ministry of Water are as follows:
+
 * Perform regular checks on the quantity of water in the wells, and take preventative measures to decrease the chances of them being non-functional.
 * Replace waterpoint types with the designation of ‘other’ with more effective and widespread types, like gravity waterpoints.
 * Put policies in place that ensure the company managing a well are performing regular checks and maintenance. Screen companies seeking to construct a well using a rigorous standard to decide if their project may go forward.
 
 ## Future Steps
 Identify the categories of certain features that are labeled as ‘other’ and ‘unknown’. This will create more clarity and specificity within the dataset, and theoretically, a model that can make even more accurate predictions.
+
 Use machine learning to create a model that predicts the quantity of water in a well, dry or not, to help the Tanzanian Ministry of Water be more proactive in performing checks and maintenance.
+
+Determine the impact of funders on the functionality of water wells.
 
 ## Repository Structure 
 ```
