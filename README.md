@@ -11,8 +11,39 @@ Our target class (functional and non functional) has a ~60/~40 split. <br>
 ## Preparation
 We dropped duplicate features and unnecessary features for our model. We also replaced null object values to 'Unknown'.<br>
 
+## EDA
+![image](https://raw.githubusercontent.com/ericdnbn/phase_3_project/main/images/Non%20Functioning%20Pumps%20by%20Management%20Groups.png)<br>
+Here we are speculating that how a waterpoint is managed may have an impact on the percentage of failed pumps. VWC seems to be leading the way with almost 43% non functioning pumps at their waterpoints.<br><br>
+
+![image](https://raw.githubusercontent.com/ericdnbn/phase_3_project/main/images/Water%20Quantity%20Non%20Functioning%20Pumps%20.png)<br>
+Well this is very interesting. Dry areas have the highest amount of broken pumps, at just about 97%. It is also interesting that waterpoints labeled as insufficient water have the second highest rate of broken pumps. It seems the less water a waterpoint has, the higher the chance the pump is non functioning.<br><br>
+
+![image](https://raw.githubusercontent.com/ericdnbn/phase_3_project/main/images/Waterpoint%20Type%20Non%20Functioning%20Pumps.png)<br>
+A single standpipe seems to be a good indicator of whether or not a pump will stop working. If a waterpoint has multiple standpoints, there is over a 50% chance that the pump will not be functioning. It would be nice if the 'Other' category could be identified to see which pumps are performing the worst.<br>
+
 ## Model Selection
-We used DummyClassifier, Logistic Regression, KNN, RandomForestClassifier, and XGBoost models to find the best accurate predictions.<br>
+We used DummyClassifier, Logistic Regression, KNN, RandomForestClassifier, and XGBoost models to find the best accurate predictions.<br><br>
+DummyClassifier:<br>
+Mean Train Score: 0.6157575757575758<br>
+Mean Test Score: 0.6157575757575758<br><br>
+
+Logistic Regression:<br>
+Mean Train Score: 0.7929812528577963<br>
+Mean Test Score: 0.7913829654570398<br><br>
+
+KNN:<br>
+Mean Train Score: 0.9180331088664422<br>
+Mean Test Score: 0.8168237934904602<br><br>
+
+RandomForestClassifier:<br>
+Mean Train Score: 0.8008793178700587<br>
+Mean Test Score: 0.7836664484349669<br><br>
+
+XGBoost:<br>
+Mean Train Score: 0.9067957351290685<br>
+Mean Test Score: 0.842864758698092<br><br>
+
+XGBoost model had the lowest bias coupled with lower variance. Although the model is slightly overfit, it predicted the results the best.<br>
 
 ## Results
 The best model was XGBoost model with hyperparameter of 'model__max_depth': 7, 'model__n_estimators': 200. This model predicted accuracy of ~85.8%.<br>
