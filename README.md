@@ -5,7 +5,7 @@
 Using data from the Tanzanian Ministry of Water, our goal is to predict if water pumps are functional or non-functional.
 
 ## Data
-We have ~59,400 data from DataDriven. <br>
+We have ~59,400 rows of data from DataDriven via the Tanazanian Ministry Of Water. <br>
 Our target class (functional and non functional) has a ~60%/~40% split. <br>
 
 ## Preparation
