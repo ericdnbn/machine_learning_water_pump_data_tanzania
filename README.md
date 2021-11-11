@@ -2,10 +2,10 @@
 # Water Pump Functionality Analysis In Tanzania
 
 ## Business Problem
-Using data from the Tanzanian Ministry of Water via DataDriven, our goal is to predict the functionality of water pumps across Tanzania. As noted on Kaggle, "Predictive analytics on this dataset could allow the Ministry to know in advance which pumps are most likely to be non-functional, so that they can triage their repair efforts. It's hard to find much simpler examples of how a good predictive model can directly save time and money."
+Using data from the Tanzanian Ministry of Water via DataDriven, our goal is to predict the functionality of water pumps across Tanzania. As noted on Kaggle, "Predictive analytics on this dataset could allow the Ministry to know in advance which pumps are most likely to be non-functional, so that they can triage their repair efforts. It's hard to find much simpler examples of how a good predictive model can directly save time and money."[https://www.kaggle.com/danielmartinalarcon/tanzanian-water-pumps](url)
 
 ## Data
-We have ~59,400 rows of data from DataDriven via the Tanazanian Ministry Of Water. <br>
+We started out with ~59,400 rows of data. <br>
 Our target class (functional and non functional) has a ~60%/~40% split. <br>
 
 ## Preparation
