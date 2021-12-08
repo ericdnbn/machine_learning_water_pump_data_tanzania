@@ -9,7 +9,7 @@ We started out with ~59,400 rows of data. <br>
 Our target class (functional and non functional) has a ~60%/~40% split. <br>
 
 ## Preparation
-We dropped duplicate features and unnecessary features in the dataset. We also replaced null values with 'Unknown'.<br>
+We dropped duplicate features, as well as unnecessary features in the dataset. We also replaced null values with 'Unknown'.<br>
 
 ## EDA
 
